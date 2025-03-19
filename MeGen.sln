@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35828.75 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeGen", "MeGen\MeGen.csproj", "{85BC4C8B-C6F0-4C70-A0D0-14D21D8EE649}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{85BC4C8B-C6F0-4C70-A0D0-14D21D8EE649}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85BC4C8B-C6F0-4C70-A0D0-14D21D8EE649}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85BC4C8B-C6F0-4C70-A0D0-14D21D8EE649}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85BC4C8B-C6F0-4C70-A0D0-14D21D8EE649}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {394B5752-3BF7-442E-A189-75109F70A7CE}
+	EndGlobalSection
+EndGlobal
