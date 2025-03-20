@@ -69,11 +69,35 @@ namespace MeGen
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
+                    listView_selectedFiles.Items.Clear();
                     _selectedPngFiles.Clear();
                     _selectedPngFiles.AddRange(openFileDialog.FileNames);
 
-                    listBox_selectedFiles.Items.Clear();
-                    listBox_selectedFiles.Items.AddRange(openFileDialog.FileNames);
+                    // determine size of each file
+                    foreach (var filePath in _selectedPngFiles)
+                    {
+                        try
+                        {
+                            using (Image image = Image.FromFile(filePath))
+                            {
+                                string width = Convert.ToString(image.Width);
+                                string height = Convert.ToString(image.Height);
+
+                                string size = $"{width}x{height}";
+
+                                ListViewItem item = new ListViewItem(Path.GetFileName(filePath));
+                                item.SubItems.Add(size);
+                                item.SubItems.Add(filePath);
+
+                                listView_selectedFiles.Items.Add(item);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"Error while selecting file {Path.GetFileName(filePath)}: {ex.Message}",
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
                 }
             }
         }
