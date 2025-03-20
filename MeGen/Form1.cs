@@ -72,8 +72,31 @@ namespace MeGen
                     _selectedPngFiles.Clear();
                     _selectedPngFiles.AddRange(openFileDialog.FileNames);
 
-                    listBox_selectedFiles.Items.Clear();
-                    listBox_selectedFiles.Items.AddRange(openFileDialog.FileNames);
+                    //listBox_selectedFiles.Items.Clear();
+                    //listBox_selectedFiles.Items.AddRange(openFileDialog.FileNames);
+
+                    DisplayResolution();
+                }
+            }
+        }
+
+        private void DisplayResolution()
+        {
+            listView_selectedFiles.Items.Clear();
+            foreach (var filePath in _selectedPngFiles)
+            {
+                using (Image image = Image.FromFile(filePath))
+                {
+                    string width = Convert.ToString(image.Width);
+                    string height = Convert.ToString(image.Height);
+
+                    string size = $"{width}x{height}";
+
+                    ListViewItem item = new ListViewItem(Path.GetFileName(filePath));
+                    item.SubItems.Add(size);
+                    item.SubItems.Add(filePath);
+
+                    listView_selectedFiles.Items.Add(item);
                 }
             }
         }

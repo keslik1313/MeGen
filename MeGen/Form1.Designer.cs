@@ -41,8 +41,10 @@
             label_version = new Label();
             textBox_version = new TextBox();
             comboBox_license = new ComboBox();
-            listBox_selectedFiles = new ListBox();
             button_selectFiles = new Button();
+            listView_selectedFiles = new ListView();
+            columnHeader_name = new ColumnHeader();
+            columnHeader_size = new ColumnHeader();
             SuspendLayout();
             // 
             // textBox_copyright
@@ -113,7 +115,7 @@
             // 
             // button_generate
             // 
-            button_generate.Location = new Point(127, 196);
+            button_generate.Location = new Point(127, 193);
             button_generate.Name = "button_generate";
             button_generate.Size = new Size(107, 23);
             button_generate.TabIndex = 9;
@@ -124,7 +126,7 @@
             // label_attention
             // 
             label_attention.AutoSize = true;
-            label_attention.Location = new Point(121, 228);
+            label_attention.Location = new Point(127, 224);
             label_attention.Name = "label_attention";
             label_attention.Size = new Size(0, 15);
             label_attention.TabIndex = 10;
@@ -155,18 +157,9 @@
             comboBox_license.Size = new Size(131, 23);
             comboBox_license.TabIndex = 13;
             // 
-            // listBox_selectedFiles
-            // 
-            listBox_selectedFiles.FormattingEnabled = true;
-            listBox_selectedFiles.ItemHeight = 15;
-            listBox_selectedFiles.Location = new Point(12, 259);
-            listBox_selectedFiles.Name = "listBox_selectedFiles";
-            listBox_selectedFiles.Size = new Size(279, 79);
-            listBox_selectedFiles.TabIndex = 14;
-            // 
             // button_selectFiles
             // 
-            button_selectFiles.Location = new Point(103, 346);
+            button_selectFiles.Location = new Point(185, 386);
             button_selectFiles.Name = "button_selectFiles";
             button_selectFiles.Size = new Size(107, 23);
             button_selectFiles.TabIndex = 15;
@@ -174,13 +167,32 @@
             button_selectFiles.UseVisualStyleBackColor = true;
             button_selectFiles.Click += button_selectFiles_Click;
             // 
+            // listView_selectedFiles
+            // 
+            listView_selectedFiles.Columns.AddRange(new ColumnHeader[] { columnHeader_name, columnHeader_size });
+            listView_selectedFiles.Location = new Point(12, 251);
+            listView_selectedFiles.Name = "listView_selectedFiles";
+            listView_selectedFiles.Size = new Size(280, 129);
+            listView_selectedFiles.TabIndex = 16;
+            listView_selectedFiles.UseCompatibleStateImageBehavior = false;
+            listView_selectedFiles.View = View.Details;
+            // 
+            // columnHeader_name
+            // 
+            columnHeader_name.Text = "Sprite name";
+            columnHeader_name.Width = 200;
+            // 
+            // columnHeader_size
+            // 
+            columnHeader_size.Text = "Size";
+            // 
             // Form_main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(303, 381);
+            ClientSize = new Size(304, 421);
+            Controls.Add(listView_selectedFiles);
             Controls.Add(button_selectFiles);
-            Controls.Add(listBox_selectedFiles);
             Controls.Add(comboBox_license);
             Controls.Add(textBox_version);
             Controls.Add(label_version);
@@ -214,7 +226,9 @@
         private Label label_version;
         private TextBox textBox_version;
         private ComboBox comboBox_license;
-        private ListBox listBox_selectedFiles;
         private Button button_selectFiles;
+        private ListView listView_selectedFiles;
+        private ColumnHeader columnHeader_name;
+        private ColumnHeader columnHeader_size;
     }
 }
